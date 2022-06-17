@@ -1,0 +1,482 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dhs: <https://usdhs.github.io/dcat-tool/#> .
+
+
+<http://usdhs.github.io/dcat-tool/#>
+  a owl:Ontology ;
+dcterms:contributor [
+        sdo:affiliation [
+            foaf:homepage <http://dhs.gov> ;
+        foaf:name "U.S. Department of Homeland Security" ;
+        ] ;
+    foaf:name "Simson Garfinkel" ;
+    ] ;
+    dcterms:modified "2021-12-29"^^xsd:date ;
+    rdfs:comment "DCAT extensions for DCAT-US proposed by DHS";
+    owl:imports dcterms: ;
+    owl:imports <http://www.w3.org/2004/02/skos/core> ;
+    owl:imports <http://www.w3.org/ns/prov-o#> ;
+    owl:versionInfo "Initial Version";
+    .
+
+dhs:dataCatalogRecordAccessLevel
+    a rdf:Property ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Data Catalog Record Access Level"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:comment "<p>The classification of this Data Inventory Record as either Public or Non-Public.</p><p>Can this record be published in data.gov?<ul class='no-bullets'><li>Yes = Public</li><li>No = Non-Public</li></ul></p>" ;
+    .
+
+dhs:public
+    a rdfs:Property ;
+    rdfs:label "public"@en ;
+    rdfs:comment "Data asset is or could be made publicly available to all without restrictions." ;
+    .
+
+dhs:restrictedPublic
+    a owl:DatatypeProperty ;
+    rdfs:label "restricted public"@en ;
+    rdfs:comment "A restricted public dataset is one only available under certain conditions or to certain audiences (such as researchers who sign a waiver)." ;
+    .
+
+dhs:nonPublic
+    a owl:DatatypeProperty ;
+    rdfs:label "non-public"@en ;
+    rdfs:comment "A non-public dataset is one that could never be made available to the public for privacy, security, or other reasons as determined by your agency." ;
+    .
+
+dhs:governance
+    a rdf:Property ;
+    rdfs:label "Governance"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:comment "<p>Either a name or email (individual or group) of the individual responsible for overseeing the information contained in the resource. Include the point of contact information with  either a name or email (individual or group) when submitting via Excel or a full Vcard when submitting via JSON.</p>";
+    .
+
+dhs:owner
+    a rdf:Property ;
+    rdfs:label "Owner"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:comment "<p>Either a name or email (individual or group) of the individual responsible for the accuracy of the information contained in the resource when submitting via Excel or a full Vcard when submitting via JSON.</p>";
+    .
+
+dhs:steward
+    a rdf:Property ;
+    rdfs:label "Steward"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>Either a name or email (individual or group) of the administrator of the dataset who ensures the information is properly stored, maintained, accessible, and protected.  If submitting via JSON, a full Vcard.</p>";
+    .
+
+dhs:custodian
+    a rdf:Property ;
+    rdfs:label "Custodian"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>Either a name or email (individual or group) of the individual who has physical possession of the information. If submitting via JSON, a full Vcard.</p>";
+    .
+
+dhs:fismaID
+    a rdf:Property ;
+    rdfs:label "FISMA ID"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The FISMA ID is a unique identifier that describes various key characteristics of a specific system.</p><p>If the dataset is part of a system that has a FISMA ID then the FISMA ID should be provided.</p><p>Example:</p><ul class='no-bullets'><li>FSA-00100-MAJ-00100</li><li>- OR -</li><li>TSA-02379-SUB-00465</li></ul></p>";
+    .
+
+dhs:sharingAgreements
+    a rdf:Property ;
+    rdfs:label "Sharing Agreements"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>A contract that states what and how  information can be shared or utilized.</p><p>Example:<ul class='no-bullets'><li>https://www.dhs.gov/sites/default/files/publications/privacy_crcl_guidance_ise_2009-01_0.pdf</li></ul></p><p>DHS</p><p><ul class='no-bullets'><li>https://catalog.data.gov/dataset/fingerprint</li></ul></p>" ;
+    .
+
+
+dhs:collectionAuthority
+    a rdf:Property ;
+    rdfs:label "Collection Authority"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The legislation or executive order under which the data was collected.</p><p>The specific document or policy that grants you permission to collect specific data.</p><p>Example:<ul class='no-bullets'><li>https://www.ecfr.gov/current/title-28/chapter-I/part-28/subpart-B/section-28.12</li></ul></p>" ;
+    .
+
+dhs:retentionAuthority
+    a rdf:Property ;
+    rdfs:label "Retention Authority"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The legislation or executive order under which the data was retained. The document will state who, how, and duration period of the information being retained.</p><p>Example:<ul class='no-bullets'><li>https://www.govinfo.gov/content/pkg/CFR-2020-title21-vol5/xml/CFR-2020-title21-vol5-sec320-38.xml</li></ul></p>" ;
+    .
+
+dhs:releaseAuthority
+    a rdf:Property ;
+    rdfs:label "Release Authority"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The document, legislation or executive order under which he data can be released.</p><p>Examples:<ul class='no-bullets'><li>https://www.ecfr.gov/current/title-6/chapter-I/part-7/subpart-B/section-7.23</li><li>https://irp.fas.org/dni/icd/icd-403.pdf</li></ul><p>" ;
+    .
+
+dhs:recordsSchedule
+    a rdf:Property ;
+    rdfs:label "Records Schedule"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The policy indicating the time period in which the records are retained.</p><p>Example:<ul class='no-bullets'><li>DAA-0563-2013-0005 (link below)</li></ul></p>" ;
+    .
+
+dhs:conformsFIPS
+    a rdf:Property ;
+    rdfs:label "Conforms FIPS"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The Federal Inventory Processing Standard that the dataset conforms to, if any.</p><p>Example:<ul class='no-bullets'><li>FIPS201-3</li><li>https://csrc.nist.gov/publications/detail/fips/201/3/final</li></ul></p>" ;
+    .
+
+dhs:conformsNIEMPercent
+    a rdf:Property ;
+    rdfs:label "Conforms NIEM Percent"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The numerical percentage (0-100) of the dataset that is NIEM compliant.</p>" ;
+    .
+
+dhs:conformsUnicode
+    a rdf:Property ;
+    rdfs:label "Conforms Unicode"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>True or False</p><p>Is the information in the resource written in Unicode (does the code given to each character start with the letter 'u')?</p><p>Information containing foreign languages/characters are typically written in Unicode format (U+XXX).</p>" ;
+    .
+
+dhs:identitiesNativeScript
+    a rdf:Property ;
+    rdfs:label "Identities NativeScript"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>True or False</p><p>Are the names of individuals and other entities stored in a way (e.g. Roman characters) that can be shared across systems?</p>" ;
+    .
+
+dhs:transliterationStandard;
+    a rdf:Property ;
+    rdfs:label "Transliteration Standard"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The standard of converting  text  from one language to Roman characters.</p><p>Example:<ul class='no-bullets'><li>https://www.iso.org/ics/01.140.10/x/</li></ul></p>" ;
+    .
+
+dhs:sourceDatasets
+    a rdf:Property ;
+    rdfs:label "Source Datasets"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>An identifier for the originating dataset (the DHS Unique Identifier if possible or DOI or URL for externally developed datasets).</p><p>Example:<ul class='no-bullets'><li>Mobius - creates TRM Data which TRM team uses for various projects.</li></ul></p>" ;
+    .
+
+dhs:destinationDatasets
+    a rdf:Property ;
+    rdfs:label "Destination Datasets"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The unique identifier of downstream datasets fed by this dataset.</p><P>Example:<ul class='no-bullets'><li>In this instance, Mobius would include the unique identifier for downstream datasets.</li></ul></p>" ;
+    .
+
+dhs:dataQualityKnown
+    a rdf:Property ;
+    rdfs:label "Data Quality Known"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>True or False</p><p>Is the quality of the information in the resource known?</p>" ;
+    .
+
+dhs:dataQualityPercent
+    a rdf:Property ;
+    rdfs:label "Data Quality Percent"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>A simple measure of the data quality, on a scale of 0-100.</p>" ;
+    .
+
+dhs:dataQualityAssessment
+    a rdf:Property ;
+    rdfs:label "Data Quality Assessment"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>A written account evaluating the quality of the information contained within the resource.</p><p>Example:<ul class='no-bullets'><li>This dataset has some gaps in critical areas. Efforts are underway to remediate.</li><li>&nbsp;</li><li>This dataset is based on information obtained in 2017. Efforts underway to obtain current data.</li></ul></p>" ;
+    .
+
+dhs:accessURLNIEM
+    a rdf:Property ;
+    rdfs:label "Access URL NIEM"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The landing page (URL) that provides you access to the NIEM interface.</p><p>Must be a URL.</p>" ;
+    .
+
+dhs:vendor
+    a rdf:Property ;
+    rdfs:label "Vendor"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "The vendor, supplier, or set of suppliers who supplied the information contained in the resource.</p><p>Example:<ul class='no-bullets'><li>ECS</li><li>ECS, GeoMgmt Inc.</li></ul></p>" ;
+    .
+
+dhs:component
+    a rdf:Property ;
+    rdfs:label "Component"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The DHS Component (sub-agency) the data pertains too.</p><p><ul class='no-bullets'><li>MGMT</li><li>CISA</li><li>CBP</li><li></li><li>FEMA</li><li>S&T</li><li>TSA</li><li>ICE</li><li>USCIS</li><li>FPS</li><li>FLETC</li><li>USSS</li><li>USCG</li></ul></p>" ;
+    .
+
+dhs:functionalDataDomain
+    a rdf:Property ;
+    rdfs:label "Functional Data Domain"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The functional subject area of the resource.</p><p>List:<ul class='no-bullets'><li>Biometrics</li><li>CBRN</li><li>Cybersecurity</li><li>Emergency Mgmt. Geospatial</li><li>Immigration</li><li>Infra. Protection</li><li>Intelligence</li><li>International Trade</li><li>Law Enforcement</li><li>Maritime</li><li>Mission Support & Mgmt.</li><li>Screening</li></ul></p>" ;
+    .
+
+dhs:tableCount
+    a rdf:Property ;
+    rdfs:label "Table Count"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The number of 2-dimensional tables in the data.</p>" ;
+    .
+
+dhs:recordCount
+    a rdf:Property ;
+    rdfs:label "Record Count"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The total number of records in the data.</p>" ;
+    .
+
+dhs:datasetClassification
+    a rdf:Property ;
+    rdfs:label "Dataset Classification"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The security classification of the data.</p><p>Example:<ul class='no-bullets'><li>CUI</li><li>Confidential</li><li>Secret</li><li>Top Secret</li></ul></p>" ;
+    .
+
+dhs:characteristics
+    a rdf:Property ;
+    rdfs:label "Characteristics"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "Specific container to hold various data characteristics." ;
+    .
+
+dhs:ch-person-level
+    a rdf:Property ;
+    rdfs:label "Characteristics - Person Level"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains enough personal records or enough personal information in order to identify an individual.</p>" ;
+    .
+
+dhs:ch-financial
+    a rdf:Property ;
+    rdfs:label "Characteristics - Financial"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains financial information.</p><p>Example:<ul class='no-bullets'><li>Bank Statements</li><li>Credit Reports</li><li>W2</li><li>Net Worth</li><li>Bank Secrecy</li></ul></p>" ;
+    .
+
+dhs:ch-event-records
+    a rdf:Property ;
+    rdfs:label "Characteristics - Event records"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains information about events which are tagged with a specific place and time.</p>" ;
+    .
+
+dhs:ch-faces
+    a rdf:Property ;
+    rdfs:label "Characteristics - Faces"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains facial recognition data or images of human faces.</p><p>Example:<ul class='no-bullets'><li>https://catalog.data.gov/dataset/global-entry-master-dataset</li></ul></p>" ;
+    .
+
+dhs:ch-fingerprints
+    a rdf:Property ;
+    rdfs:label "Characteristics - Fingerprints"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains fingerprint data or images of fingerprints.</p><p>Example:<ul class='no-bullets'><li>https://catalog.data.gov/dataset/global-entry-master-dataset</li></ul></p>" ;
+    .
+
+dhs:ch-cui
+    a rdf:Property ;
+    rdfs:label "Characteristics - CUI"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains Controlled Unclassified Information (CUI).</p>" ;
+    .
+
+dhs:ch-phi
+    a rdf:Property ;
+    rdfs:label "Characteristics - PHI"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains Protected Health Information (PHI).</p><p>Examples:<ul class='no-bullets'><li>Medical Records</li><li>Diagnoses</li><li>Medicul Results</li></ul></p>" ;
+    .
+
+dhs:ch-pii
+    a rdf:Property ;
+    rdfs:label "Characteristics - PII"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains Personally Identifiable Information (PII).</p><p>Reference: <a href='https://www.dhs.gov/sites/default/files/publications/dhs%20policy%20directive%20047-01-007%20handbook%20for%20safeguarding%20sensitive%20PII%2012-4-2017.pdf'>https://www.dhs.gov/sites/default/files/publications/dhs%20policy%20directive%20047-01-007%20handbook%20for%20safeguarding%20sensitive%20PII%2012-4-2017.pdf</a></p>" ;
+    .
+
+dhs:ch-geospatial
+    a rdf:Property ;
+    rdfs:label "Characteristics - Geospatial"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains geospatial information.</p><p>Example:<ul class='no-bullets'><li>https://catalog.data.gov/dataset/fema-historical-disaster-declarations-shp</li><li>https://catalog.data.gov/dataset/formerly-used-defense-sites-fuds-public-properties</li></ul></P>" ;
+    .
+
+dhs:ch-environmental
+    a rdf:Property ;
+    rdfs:label "Characteristics - Environmental"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains environmental information.</p><p>Example:<ul class='no-bullets'><li>https://catalog.data.gov/dataset/environmental-planning-historic-preservation-2dedc</li></ul></p>" ;
+    .
+
+dhs:ch-fisa
+    a rdf:Property ;
+    rdfs:label "Characteristics - FISA"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains information pertaining to the Foreign Intelligence Surveillance Act (FISA).</p>" ;
+    .
+
+dhs:ch-8usc1367
+    a rdf:Property ;
+    rdfs:label "Characteristics - 8usc1367"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains  8 USC 1367.</p><p>Reference: <a href='https://www.dhs.gov/sites/default/files/publications/dhs_foia_instruction_section_1367_information.pdf'>https://www.dhs.gov/sites/default/files/publications/dhs_foia_instruction_section_1367_information.pdf</a></p>" ;
+    .
+
+dhs:ch-propin
+    a rdf:Property ;
+    rdfs:label "Characteristics - proprietary info"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains propriety commercial information.</p><p>Example:<ul class='no-bullets'><li>https://catalog.data.gov/dataset/automated-commercial-environment-international-trade-data-system-master-dataset</li></ul></p>" ;
+    .
+
+dhs:ch-immigration
+    a rdf:Property ;
+    rdfs:label "Characteristics - Immigration"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains information pertaining to immigration.</p><p>Example:<ul class='no-bullets'><li>Asylee</li><li>Resident Status</li><li>Visas</li><li>Victims of Human Trafficking</li><li> https://catalog.data.gov/dataset/immigration-statistics-ef958</li></ul></p>" ;
+    .
+
+dhs:ch-criticalInfrastructure
+    a rdf:Property ;
+    rdfs:label "Characteristics - Critical Infrastructure"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains critical infrastructure information.</p><p>Example:<ul class='no-bullets'><li>https://catalog.data.gov/dataset/emergency-medical-service-ems-stations</li><li>https://catalog.data.gov/dataset/ilss-data</li></ul></p>" ;
+    .
+
+dhs:ch-disseminationRestrictions
+    a rdf:Property ;
+    rdfs:label "Characteristics - Dissemination Restrictions"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information  has dissemination restrictions.</p>" ;
+    .
+
+dhs:ch-biometrics
+    a rdf:Property ;
+    rdfs:label "Characteristics - biometrics"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains biometric information.</p><p>Example:<ul class='no-bullets'><li>https://catalog.data.gov/dataset/global-entry-master-dataset</li><li>https://catalog.data.gov/dataset/arrival-departure-information-system-b3b75</li></ul></p>" ;
+    .
+
+dhs:ch-pcii
+    a rdf:Property ;
+    rdfs:label "Characteristics - PCII - Protected Critical Infrastructure Information"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range xsd:boolean;
+    rdfs:comment "<p>True or False</p><p>The information in the resource contains protected critical infrastructure information.</p>" ;
+    .
+
+dhs:hostingLocation
+    a rdf:Property ;
+    rdfs:label "Hosting Location"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>Where the data is located?</p><p>Example:<ul class='no-bullets'><li>CIRRUS</li><li>AWS GovCloud</li></ul></p>" ;
+    .
+
+dhs:hostedInCloud
+    a rdf:Property ;
+    rdfs:label "Hosted in Cloud"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>True or False</p><p>Is the dataset stored in the cloud?</p>" ;
+    .
+
+dhs:easilyAccessibleByCreatingComponent
+    a rdf:Property ;
+    rdfs:label "Easily Accessible By Creating Component"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>True or False</p><p>The information can be easily accessed by individuals within the DHS component that created it?</p>" ;
+    .
+
+dhs:easilyAccessibleByAllComponents
+    a rdf:Property ;
+    rdfs:label "Easily Accessible By All Components"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>True or False</p><p>The information can be easily accessed by individuals within all of DHS?</p>" ;
+    .
+
+dhs:easilyAccessibleByGeneralPublic
+    a rdf:Property ;
+    rdfs:label "Easily Accessible By General Public"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>True or False</p><p>The information can be easily accessed by the general public?</p>" ;
+    .
+
+dhs:recordTransmission
+    a rdf:Property ;
+    rdfs:label "Record Transmission"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The date of when the information was submitted into the system.</p>" ;
+    .
+
+dhs:validityTime
+    a rdf:Property ;
+    rdfs:label "Validity Time"@en ;
+    rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "<p>The period of time the metadata record is valid for.</p><p>Must be in xsd duration form.</p><p>Example:<ul class='no-bullets'><li>P1Y=Period 1 Year</li><li>P2M=Period 2 Months</li><li>P3W=Period 3 Weeks</li><li>P4D=Period 4 Days</li><li>P1Y2M=Period 1 Year & 2 Months</li></ul></p>" ;
+    .
