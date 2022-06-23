@@ -77,7 +77,7 @@ dhs:steward
     rdfs:label "Steward"@en ;
     rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
     rdfs:range rdfs:Literal ;
-    rdfs:comment "<p>Either a name or email (individual or group) of the administrator of the dataset who ensures the information is properly stored, maintained, accessible, and protected.  If submitting via JSON, a full Vcard.</p>";
+    rdfs:comment "<p>Either a name or email (individual or group) of the administrator of the dataset who ensures the information is properly stored, maintained, accessible, and protected. If submitting via JSON, a full Vcard.</p>";
     .
 
 dhs:custodian
@@ -134,7 +134,7 @@ dhs:recordsSchedule
     rdfs:label "Records Schedule"@en ;
     rdfs:isDefinedBy <http://github.com/usdhs/dcat-tool/> ;
     rdfs:range rdfs:Literal ;
-    rdfs:comment "<p>The policy indicating the time period in which the records are retained.</p><p>Example:<ul class='no-bullets'><li>DAA-0563-2013-0005 (link below)</li></ul></p>" ;
+    rdfs:comment "<p>The policy indicating the time period in which the records are retained.</p><p>Example:<ul class='no-bullets'><li>DAA-0563-2013-0005 (link below)</li></ul></p>" ;
     .
 
 dhs:conformsFIPS

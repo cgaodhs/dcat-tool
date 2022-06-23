@@ -8,7 +8,7 @@ body {
   max-width: 960px;
   margin: 0 auto;
   background: white;
-  font-family:Arial, Helvetica, sans-serif; 
+  font-family:Arial, Helvetica, sans-serif;
   font-size:small;
 }
 
@@ -144,7 +144,7 @@ table.definitions tr {
     border-bottom: 1px solid black;
 }
 
-table.definitions th {
+table.definitions td.label {
     color: black;
     background-color: lightskyblue;
     font-weight: normal;
@@ -161,18 +161,12 @@ table.definitions td {
 }
 
 .headspecial{
-  background-color: lightslategrey; 
-  color: black !important; 
+  background-color: lightslategrey;
+  color: black !important;
   font-weight: bold;
 }
 
 .hrefright{
-  color: white !important; 
+  color: white !important;
   text-align: right;
-}
-
-ul.no-bullets {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }

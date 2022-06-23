@@ -55,7 +55,7 @@ usg:systemOfRecords
     rdfs:label "System of Records"@en ;
     rdfs:isDefinedBy <https://resources.data.gov/resources/dcat-us/> ;
     rdfs:range rdfs:Literal ;
-    rdfs:comment "<p>If the system is designated as a system of records under the Privacy Act of 1974, provide the URL to the System of Records Notice that relates to the dataset. The URL should be from FederalRegister.gov  or point to an entry from the Federal Register. </p>" ;
+    rdfs:comment "<p>If the system is designated as a system of records under the Privacy Act of 1974, provide the URL to the System of Records Notice that relates to the dataset. The URL should be from FederalRegister.gov  or point to an entry from the Federal Register.</p>" ;
     .
 
 usg:describedBy
@@ -113,7 +113,7 @@ usg:primaryITInvestmentUII
     rdfs:label "Primary IT Investment UII"@en ;
     rdfs:isDefinedBy <http://resources.data.gov/resources/dcat-us/> ;
     rdfs:range rdfs:Literal ;
-    rdfs:comment "<p>Used for linking a dataset with an IT UII. A Unique Investment Identifier (UII) is an established and unique identifier of an investment, assigned at the Component level.</p><p>Example: 010-999992220</p><p>Non-Tech Example: The number/ identifier on the 'Property of…' sticker on your laptop.</p>" ;
+    rdfs:comment "<p>Used for linking a dataset with an IT UII. A Unique Investment Identifier (UII) is an established and unique identifier of an investment, assigned at the Component level.</p><p>Example: 010-999992220</p><p>Non-Tech Example: The number/ identifier on the 'Property of...' sticker on your laptop.</p>" ;
     .
 
 usg:encryptionAlgorithm

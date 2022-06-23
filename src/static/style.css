@@ -144,11 +144,11 @@ table.definitions tr {
     border-bottom: 1px solid black;
 }
 
-table.definitions th {
+table.definitions td.label {
     color: black;
     background-color: lightskyblue;
     font-weight: normal;
-    width: 50px;
+    width: 300px;
     text-align: left;
     padding: 5px;
 }
@@ -156,7 +156,7 @@ table.definitions th {
 table.definitions td {
     border: 1px solid gray;
     color: black;
-    width: 400px;
+    width: 200px;
     padding: 5px;
 }
 
