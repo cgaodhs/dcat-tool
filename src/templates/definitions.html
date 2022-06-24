@@ -24,7 +24,7 @@
             {% if loop.changed(group) %}
          </table>
          <h3>{{group}}</h3>
-         <table class='definitions' style='width:100%;'>
+         <table class='definitions'>
             <tr class="headspecial">
                <th>Label</th>
                <th>Attribute Name</th>
@@ -35,10 +35,10 @@
             {% endif %}
             <tr>
                <td class='label'> {{ label }} </td>
-               <td> {{ name }} </td>
-               <td class='wrap'> {{ d }} </td>
-               <td class='wrap'> <a href="{{ namesp }}" target="_blank">{{ namesp }}</a> </td>
-               <td> {{ required }} </td>
+               <td class='attrname'> {{ name }} </td>
+               <td class='definition'> {{ d }} </td>
+               <td class='namespace'> <a href="{{ namesp }}" target="_blank">{{ namesp }}</a> </td>
+               <td class="required"> {{ required }} </td>
             </tr>
             {% endfor %}
          </table>

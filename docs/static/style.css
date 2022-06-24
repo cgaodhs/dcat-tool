@@ -150,6 +150,7 @@ table.definitions td.label {
     font-weight: normal;
     text-align: left;
     padding: 5px;
+    width: 20%;
 }
 
 table.definitions td {
@@ -158,8 +159,23 @@ table.definitions td {
     padding: 5px;
 }
 
-table.definitions td.wrap {
+table.definitions td.attrname {
+  word-break: break-word;
+  width:20%;
+}
+
+table.definitions td.definition {
   word-break: break-all;
+  width:30%;
+}
+
+table.definitions td.namespace {
+  word-break: break-all;
+  width:20%;
+}
+
+table.definitions td.required {
+  width:10%;
 }
 
 .headspecial{

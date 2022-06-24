@@ -10,7 +10,6 @@ The purpose of the DHS Data Inventory Program (DIP) is to create an inventory of
 The DIP collects metadata about every dataset within DHS, including the DHS management function and all DHS components, builds a dataset-of-datasets called the DHS Data Inventory and makes that inventory available for uses both inside and external to DHS.
 The DIP is conducted under DHS Delegation 04004 of May 18, 2021, from Secretary Mayorkas to the Chief Data Officer, as authorized by the "Foundations for Evidence-Based Policymaking Act of 2018" (codified at 44 United State Code (U.S.C.) &#167;3520) and the "Open, Public, Electronic, and Necessary Government Data Act" (OPEN Government Data Act) (codified at 44 U.S.C. &#167;3520).
 
-
 <h1>Data Inventory Record Basics</h1>
 The DHS Data Inventory Program (DIP) Record is designed to capture, at minimum, enough data to identify that a dataset exists within a DHS component, and - in the best case -
 captures substantial detail about the upstream and downstream systems, data quality, data characteristics, authority and ownership. The DIP Record is designed as a RDF graph -
@@ -21,14 +20,14 @@ JSON-LD, Turtle or RDF/XML. The full specification for the DIP Record - includin
 <h2>Required Fields - Minimum Viable Record</h2>
 The minimum record for the DIP collects just enough data to identify that a dataset exists within a DHS component. The required fields include:
 <ul>
-    <li>Identifier</li>
-    <li>Title</li>
-    <li>Description</li>
-    <li>Access Level</li>
-    <li>Data Catalog Record Access Level</li>
-    <li>Date Issued</li>
-    <li>Component</li>
-  </ul>
+  <li>Identifier</li>
+  <li>Title</li>
+  <li>Description</li>
+  <li>Access Level</li>
+  <li>Data Catalog Record Access Level</li>
+  <li>Date Issued</li>
+  <li>Component</li>
+</ul>
 
 <h2>Other Important Fields</h2>
 As part of the upload Mobius will add the following fields (if they are not already defined in the upload):
@@ -66,11 +65,30 @@ The last Namespace is a custom extension to the DCAT-US Namespace developed spec
 namespace - including datatype and usage - can be found here:<a href="https://usdhs.github.io/dcat-tool/dhsnamespace.html" target="_blank">https://usdhs.github.io/dcat-tool/dhsnamespace.html</a>
 <br/><br/>
 <table class='definitions'>
-    <tr class="headspecial"><th>Common Name</th><th>Prefix</th><td>Namespace</th></tr>
-    <tr><td class='label' style='width:300px;'>Dublin Core Terms</th><td>dcterms</td><td><a href="http://purl.org/dc/terms/" target="_blank">http://purl.org/dc/terms/</a>    </td></tr>
-    <tr><td class='label' style='width:300px;'>Data Catalog Vocabulary (DCAT) - Version 2</th><td>dcat</td><td><a href="http://www.w3.org/ns/dcat/" target="_blank">http://www.w3.org/ns/dcat/</a>    </td></tr>
-    <tr><td class='label' style='width:300px;'>DCAT-US Schema v1.1</th><td>usg</td><td><a href="http://resources.data.gov/resources/dcat-us/" target="_blank">http://resources.data.gov/resources/dcat-us/</a>    </td></tr>
-    <tr><td class='label' style='width:300px;'>DHS DCAT Extensions</th><td>dhs</td><td><a href="https://usdhs.github.io/dcat-tool/dhsnamespace.html" target="_blank">https://usdhs.github.io/dcat-tool/dhsnamespace.html</a>    </td></tr>
+    <tr class="headspecial">
+      <th>Common Name</th>
+      <th>Prefix</th>
+      <th>Namespace</th></tr>
+    <tr>
+      <td class='label'>Dublin Core Terms</td>
+      <td class='attrname'>dcterms</td>
+      <td class='namespace'><a href="http://purl.org/dc/terms/" target="_blank">http://purl.org/dc/terms/</a></td>
+    </tr>
+    <tr>
+      <td class='label'>Data Catalog Vocabulary (DCAT) - Version 2</td>
+      <td class='attrname'>dcat</td>
+      <td class='namespace'><a href="http://www.w3.org/ns/dcat/" target="_blank">http://www.w3.org/ns/dcat/</a></td>
+    </tr>
+    <tr>
+      <td class='label'>DCAT-US Schema v1.1</td>
+      <td class='attrname'>usg</td>
+      <td class='namespace'><a href="http://resources.data.gov/resources/dcat-us/" target="_blank">http://resources.data.gov/resources/dcat-us/</a></td>
+    </tr>
+    <tr>
+      <td class='label'>DHS DCAT Extensions</td>
+      <td class='attrname'>dhs</td>
+      <td class='namespace'><a href="https://usdhs.github.io/dcat-tool/dhsnamespace.html" target="_blank">https://usdhs.github.io/dcat-tool/dhsnamespace.html</a></td>
+    </tr>
 </table>
 
 <h2>Sample Records</h2>
