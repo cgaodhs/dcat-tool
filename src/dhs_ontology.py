@@ -52,8 +52,8 @@ WHERE {
   OPTIONAL { ?aShapeName sh:minCount     ?aMinCount . }
   OPTIONAL { ?aShapeName sh:datatype     ?aDataType . }
   FILTER (!BOUND(?aPropertyLabel) || lang(?aPropertyLabel) = "" || lang(?aPropertyLabel) = "en" || lang(?aPropertyLabel) = "en-US")
-  } 
-  UNION 
+  }
+  UNION
   {
   dhs:characteristicsShape sh:property ?aShapeName .
   ?aShapeName sh:path ?aProperty .
@@ -188,6 +188,7 @@ class Validator:
         counter = 0
         for d in self.get_query_dict():
             group = d.get('aGroup', '')
+            #print("-->group:"+group)
             if(group == ''):
                 continue
             comment = d.get('aShapeComment', d.get('aPropertyComment', ''))
@@ -196,7 +197,7 @@ class Validator:
             requiredIn = d.get('aMinCount', '')
             required = "No"
             if(int(requiredIn) > 0):
-                required = "Yes" 
+                required = "Yes"
             counter += 1
             #yield (group, simp.simplify(d['aProperty']), comment, label, definedByNS, required)
             yield (simp.simplify(group, namespace=False), simp.simplify(d['aProperty']), comment, label, definedByNS, required, simp.simplify(d.get('aType', DEFAULT_TYPE)), simp.simplify(d.get('aDataType', DEFAULT_TYPE)) )
@@ -212,6 +213,7 @@ class Validator:
             definedByNS = d.get('aPropertyDefinedBy', '')
             if(namespaceStr in definedByNS):
                 group = d.get('aGroup', '')
+                #print("-->group:"+group)
                 if(group == ''):
                     continue
                 comment = d.get('aShapeComment', d.get('aPropertyComment', ''))

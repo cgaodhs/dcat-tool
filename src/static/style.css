@@ -134,10 +134,10 @@ input[type=submit] {
   min-width: 10em;
 }
 
-
 table.definitions {
     border-collapse: collapse;
     border: 1px solid gray;
+    width: 100%;
 }
 
 table.definitions tr {
@@ -148,7 +148,6 @@ table.definitions td.label {
     color: black;
     background-color: lightskyblue;
     font-weight: normal;
-    width: 300px;
     text-align: left;
     padding: 5px;
 }
@@ -156,8 +155,11 @@ table.definitions td.label {
 table.definitions td {
     border: 1px solid gray;
     color: black;
-    width: 200px;
     padding: 5px;
+}
+
+table.definitions td.wrap {
+  word-break: break-all;
 }
 
 .headspecial{
