@@ -160,17 +160,16 @@ table.definitions td {
 }
 
 table.definitions td.attrname {
-  word-break: break-word;
   width:20%;
 }
 
 table.definitions td.definition {
-  /** word-break: break-all; **/
+  word-break: break-word;
   width:30%;
 }
 
 table.definitions td.namespace {
-  /** word-break: break-all; **/
+  word-break: break-word;
   width:20%;
 }
 
