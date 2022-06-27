@@ -165,12 +165,12 @@ table.definitions td.attrname {
 }
 
 table.definitions td.definition {
-  word-break: break-all;
+  /** word-break: break-all; **/
   width:30%;
 }
 
 table.definitions td.namespace {
-  word-break: break-all;
+  /** word-break: break-all; **/
   width:20%;
 }
 
